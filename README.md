@@ -10,5 +10,7 @@
 >>>maybe i need to configure chinese input method on ubuntu.
 
 help.c is about chain table
+
 help2.cpp is about stack
+
 >both are my friend's homework,but i am learning the same class on my own,so i did this.
