@@ -1,16 +1,7 @@
 # README
->there is something wrong with my computer
->>when i am visiting github on Windows11,i see 404.
->>
->>but when i turned to ubutu (vmware),i succeed.
->
->so today README is in English.
->
->>because my ubuntu can type in English only.
->>>maybe i need to configure chinese input method on ubuntu.
 
-help.c is about chain table
+help.c是关于链表的。
 
-help2.cpp is about stack
+help2.cpp是关于栈的。
 
->both are my friend's homework,but i am learning the same class on my own,so i did this.
+>原本都是我朋友的作业，但是因为我也想要学习这门课，所以写了这些作业。
