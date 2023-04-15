@@ -9,25 +9,25 @@ typedef struct BitNode
         TelemType data;
         struct BitNode *Lchild,*Rchild;
 }BitNode,*BiTree;
-status CreatBitree(BiTree &T);/*¶ş²æÊ÷½¨Á¢£¬ÊÖ¶¯ÊäÈë½ÚµãÖµ,ËäÈ»µ«ÊÇ²»ÄÜÊÇ-1£¬ÒòÎªÒªÓÃÀ´ÍË³ö*/
-status LRCBitree(BiTree &T,char temp);/*½¨Á¢×óÓÒ×ÓÊ÷,ÓÉCreatBitreeµ÷ÓÃ*/
-status PreorderTraverse(BiTree T);/*×óĞò±éÀú£¬µİ¹é*/
-status InorderTraverse(BiTree T);/*ÖĞĞò±éÀú£¬µİ¹é*/
-status PostorderTraverse(BiTree T);/*ºóĞò±éÀú£¬µİ¹é*/
+status CreatBitree(BiTree &T);/*äºŒå‰æ ‘å»ºç«‹ï¼Œæ‰‹åŠ¨è¾“å…¥èŠ‚ç‚¹å€¼,è™½ç„¶ä½†æ˜¯ä¸èƒ½æ˜¯-1ï¼Œå› ä¸ºè¦ç”¨æ¥é€€å‡º*/
+status LRCBitree(BiTree &T,char temp);/*å»ºç«‹å·¦å³å­æ ‘,ç”±CreatBitreeè°ƒç”¨*/
+status PreorderTraverse(BiTree T);/*å·¦åºéå†ï¼Œé€’å½’*/
+status InorderTraverse(BiTree T);/*ä¸­åºéå†ï¼Œé€’å½’*/
+status PostorderTraverse(BiTree T);/*ååºéå†ï¼Œé€’å½’*/
 int leafcount(BiTree T);
-status DestoryBitre(BiTree &T);/*Ïú»Ù¶ş²æÊ÷*/
+status DestoryBitre(BiTree &T);/*é”€æ¯äºŒå‰æ ‘*/
 
 int main()
 {
     BiTree T;
     CreatBitree(T);
-    printf("\n×óĞò±éÀú½á¹ûÎª:\n");
+    printf("\nå·¦åºéå†ç»“æœä¸º:\n");
     PreorderTraverse(T);
-    printf("\nÖĞĞò±éÀú½á¹ûÎª:\n");
+    printf("\nä¸­åºéå†ç»“æœä¸º:\n");
     InorderTraverse(T);
-    printf("\nºóĞò±éÀú½á¹ûÎª:\n");
+    printf("\nååºéå†ç»“æœä¸º:\n");
     PostorderTraverse(T);
-    printf("\n½ÚµãÊıÎª:%d",leafcount(T));
+    printf("\nèŠ‚ç‚¹æ•°ä¸º:%d",leafcount(T));
     DestoryBitre(T);
     return 0;
 }
@@ -35,7 +35,7 @@ int main()
 status CreatBitree(BiTree &T)
 {
     int Val=-1;
-    printf("ÇëÊäÈë½ÚµãµÄÖµ(-1±íÊ¾Ã»ÓĞÒ¶½Úµã):");
+    printf("è¯·è¾“å…¥èŠ‚ç‚¹çš„å€¼(-1è¡¨ç¤ºæ²¡æœ‰å¶èŠ‚ç‚¹):");
     scanf("%d",&Val);
     if(Val==-1)
     {
@@ -58,13 +58,13 @@ status LRCBitree(BiTree &T,char temp)
     BiTree *t;
     if(temp=='L')
     {
-        printf("ÊäÈë%dµÄ×ó×Ó½Úµã:",T->data);
+        printf("è¾“å…¥%dçš„å·¦å­èŠ‚ç‚¹:",T->data);
         T->Lchild=new BitNode;
         t=&(T->Lchild);
     }
     else
     {
-        printf("ÊäÈë%dµÄÓÒ×Ó½Úµã:",T->data);
+        printf("è¾“å…¥%dçš„å³å­èŠ‚ç‚¹:",T->data);
         T->Rchild=new BitNode;
         t=&(T->Rchild);
     }
@@ -98,9 +98,9 @@ status InorderTraverse(BiTree T)
 {
     if(T!=NULL)
     {
-        PreorderTraverse(T->Lchild);
+        InorderTraverse(T->Lchild);
         printf("%d  ",T->data);
-        PreorderTraverse(T->Rchild);
+        InorderTraverse(T->Rchild);
     }
     return 1;
 }
@@ -109,8 +109,8 @@ status PostorderTraverse(BiTree T)
 {
     if(T!=NULL)
     {
-        PreorderTraverse(T->Lchild);
-        PreorderTraverse(T->Rchild);
+        PostorderTraverse(T->Lchild);
+        PostorderTraverse(T->Rchild);
         printf("%d  ",T->data);
     }
     return 1;
